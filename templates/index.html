@@ -1,0 +1,52 @@
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>PEPCHECKER</title>
+    </head>
+    <style>
+        table {
+           border: 1px solid grey;
+        }
+        th {
+           border: 1px solid grey;
+        }
+        td {
+           border: 1px solid grey;
+        }
+    </style>
+    <body>
+        <form method="post">
+            <div>
+                <label>
+                    <textarea cols="100" rows="20" name="comment">{{text}}</textarea>
+                </label>
+            </div>
+            <div style="float: left; margin-right: 1rem; margin-top: 1rem"><input class="button" type="submit" value="Check"></div>
+        </form>
+        <form method="get">
+                <div><input class="button" type="submit" value="Clear"></div>
+        </form>
+
+        <div>
+            <table>
+                <tr>
+                    <td>Code</td>
+                    <td>Line</td>
+                    <td>Column</td>
+                    <td>Text</td>
+                </tr>
+                {% for i in range(num) %}
+                    <tr>
+                        <td>{{ errors[i][0] }}</td>
+                        <td>{{ errors[i][1] }}</td>
+                        <td>{{ errors[i][2] }}</td>
+                        <td>{{ errors[i][3] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </body>
+
+
+</html>
